@@ -12,6 +12,12 @@ public class Die : MonoBehaviour
     [SerializeField] private float minRollTime = 0.1f;
     [SerializeField] private float angularVelocityThresholdTime = 0.1f;
     [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private DieFaceSO face1;
+    [SerializeField] private DieFaceSO face2;
+    [SerializeField] private DieFaceSO face3;
+    [SerializeField] private DieFaceSO face4;
+    [SerializeField] private DieFaceSO face5;
+    [SerializeField] private DieFaceSO face6;
     private bool prevFrameRolling;
     private int resolvedFace;
     private float timeBelowAngularVelocityThreshold;
@@ -42,10 +48,6 @@ public class Die : MonoBehaviour
             return;
         }
         prevFrameRolling = false;
-        //if (resolvedFace > 0)
-        //{
-        //    return;
-        //}
 
         float dot1 = Vector3.Dot(transform.up, Vector3.up);
         float dot2 = Vector3.Dot(transform.right, Vector3.up);
@@ -57,28 +59,33 @@ public class Die : MonoBehaviour
         if (dot1 > 0.99f)
         {
             resolvedFace = 1;
+            face1.Execute();
         }
         if (dot2 > 0.99f)
         {
             resolvedFace = 2;
+            face2.Execute();
         }
         if (dot3 > 0.99f)
         {
             resolvedFace = 3;
+            face3.Execute();
         }
         if (dot4 > 0.99f)
         {
             resolvedFace = 4;
+            face4.Execute();
         }
         if (dot5 > 0.99f)
         {
             resolvedFace = 5;
+            face5.Execute();
         }
         if (dot6 > 0.99f)
         {
             resolvedFace = 6;
+            face6.Execute();
         }
-        Debug.Log(resolvedFace);
     }
 
     [Button]
