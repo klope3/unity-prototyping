@@ -7,11 +7,11 @@ using TMPro;
 public class Die : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private Collider collider;
     [SerializeField] private float randTorqueAmount;
     [SerializeField] private float angularVelocityThreshold = 0.01f;
     [SerializeField] private float minRollTime = 0.1f;
     [SerializeField] private float angularVelocityThresholdTime = 0.1f;
-    [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private DieFaceSO face1;
     [SerializeField] private DieFaceSO face2;
     [SerializeField] private DieFaceSO face3;
@@ -29,7 +29,6 @@ public class Die : MonoBehaviour
 
     private void Update()
     {
-        text.text = "rolling";
         if (rb.angularVelocity.magnitude > angularVelocityThreshold)
         {
             resolvedFace = 0;
@@ -42,7 +41,6 @@ public class Die : MonoBehaviour
         {
             return;
         }
-        text.text = "rest";
         if (!prevFrameRolling)
         {
             return;
@@ -115,5 +113,11 @@ public class Die : MonoBehaviour
     {
         rb.useGravity = true;
         Spin();
+    }
+
+    public void SetPhysicsActive(bool b)
+    {
+        rb.useGravity = b;
+        collider.enabled = b;
     }
 }
