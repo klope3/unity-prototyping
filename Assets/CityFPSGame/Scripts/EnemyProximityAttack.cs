@@ -11,8 +11,14 @@ public class EnemyProximityAttack : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
     private bool cooldown;
 
+    private void Awake()
+    {
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
     private void Update()
     {
+        if (playerTransform == null) return;
         if (cooldown) return;
 
         Vector3 vecToPlayer = playerTransform.position - transform.position;

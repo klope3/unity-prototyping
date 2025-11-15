@@ -7,14 +7,20 @@ namespace CityFPSGame
     public class EnemyTemp : MonoBehaviour
     {
         [SerializeField] private ECM2.Character character;
-        [SerializeField] private Transform playerTrans;
         [SerializeField] private float chaseDistance;
+        private Transform playerTrans;
         private float timer;
         private bool wandering;
+
+        private void Awake()
+        {
+            playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+        }
 
         private void Update()
         {
             timer += Time.deltaTime;
+            if (playerTrans == null) return;
 
             Vector3 vecToPlayer = playerTrans.position - transform.position;
             float distToPlayer = vecToPlayer.magnitude;
