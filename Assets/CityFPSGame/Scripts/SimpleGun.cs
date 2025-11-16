@@ -22,6 +22,7 @@ namespace CityFPSGame
         }
 
         public UnityEvent OnFire;
+        public UnityEvent OnAmmoChange;
 
         private void Awake()
         {
@@ -34,7 +35,7 @@ namespace CityFPSGame
             {
                 if (ammo <= 0) return;
 
-                ammo--;
+                AddAmmo(-1);
                 bool hit = Physics.Raycast(new Ray(muzzlePoint.position, muzzlePoint.forward), out RaycastHit hitInfo, 10000, layerMask);
                 OnFire?.Invoke();
                 if (!hit) return;
@@ -47,6 +48,12 @@ namespace CityFPSGame
 
                 health.AddHealth(-1 * damage, hitInfo.point);
             }
+        }
+
+        public void AddAmmo(int amount)
+        {
+            ammo = Mathf.Clamp(ammo + amount, 0, maxAmmo);
+            OnAmmoChange?.Invoke();
         }
     }
 }
