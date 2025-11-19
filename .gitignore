@@ -87,3 +87,5 @@ crashlytics-build.properties
 /[Aa]ssets/ECM2/
 /[Aa]ssets/[Dd]ev[Tt]ex/
 /[Aa]ssets/[Dd]ev[Tt]ex.meta
+/[Aa]ssets/POLYGON*city*pack/
+/[Aa]ssets/POLYGON*city*pack.meta

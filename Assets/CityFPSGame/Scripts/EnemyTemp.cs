@@ -8,6 +8,8 @@ namespace CityFPSGame
     {
         [SerializeField] private ECM2.Character character;
         [SerializeField] private float chaseDistance;
+        [SerializeField] private float stopDistance;
+        [SerializeField] private float normalSpeed;
         private Transform playerTrans;
         private float timer;
         private bool wandering;
@@ -24,6 +26,7 @@ namespace CityFPSGame
 
             Vector3 vecToPlayer = playerTrans.position - transform.position;
             float distToPlayer = vecToPlayer.magnitude;
+            character.maxWalkSpeed = distToPlayer < stopDistance ? 0 : normalSpeed;
             if (distToPlayer < chaseDistance)
             {
                 character.SetMovementDirection(vecToPlayer.normalized);
