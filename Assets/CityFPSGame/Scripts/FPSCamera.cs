@@ -17,9 +17,14 @@ public class FPSCamera : MonoBehaviour
     [SerializeField, Tooltip("How far in degrees can you move the camera up.")]
     public float maxPitch = 80.0f;
 
-    private void Start()
+    private void OnEnable()
     {
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private void OnDisable()
+    {
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void Update()
