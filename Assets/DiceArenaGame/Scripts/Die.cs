@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 
 namespace DiceArenaGame
 {
-    public class Die : MonoBehaviour
+    public class Die : MonoBehaviour, IClickableObject
     {
         [SerializeField] private Rigidbody rb;
         [SerializeField] private float spinForce;
@@ -23,6 +23,7 @@ namespace DiceArenaGame
         [SerializeField] private TextMeshProUGUI face4DebugText;
         [SerializeField] private TextMeshProUGUI face5DebugText;
         [SerializeField] private TextMeshProUGUI face6DebugText;
+        [SerializeField] private PointHandler pointHandler;
         private bool rolling;
 
         private void Awake()
@@ -66,7 +67,7 @@ namespace DiceArenaGame
         {
             DieFaceSO dieFace = ChooseFace(face);
 
-            if (dieFace.faceType == DieFaceSO.FaceType.Points) Debug.Log($"{dieFace.points} points!");
+            if (dieFace.faceType == DieFaceSO.FaceType.Points) pointHandler.AddPoints(dieFace.points);
             if (dieFace.faceType == DieFaceSO.FaceType.Attack) Debug.Log($"Attack {dieFace.attackStrength}!");
             if (dieFace.faceType == DieFaceSO.FaceType.Multiplier) Debug.Log($"Multiplier {dieFace.multiplier}!");
             if (dieFace.faceType == DieFaceSO.FaceType.RepairSelf) Debug.Log($"Repair self {dieFace.repairAmount}!");
@@ -93,6 +94,11 @@ namespace DiceArenaGame
             face4DebugText.text = face4.faceName;
             face5DebugText.text = face5.faceName;
             face6DebugText.text = face6.faceName;
+        }
+
+        public void Click()
+        {
+            Roll();
         }
     }
 }
