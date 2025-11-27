@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   faceName: 1ATK
   faceType: 2
-  points: 20
-  attackStrength: 0
+  points: 0
+  attackStrength: 1
   multiplier: 0
   repairAmount: 0

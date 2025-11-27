@@ -45,7 +45,7 @@ namespace DiceArenaGame
             yield return new WaitForSeconds(spinTime);
             rb.angularVelocity = Vector3.zero;
 
-            int rand = Random.Range(1, 6);
+            int rand = Random.Range(1, 7);
             ExecuteFace(rand);
             SetFaceAngle(rand);
 
