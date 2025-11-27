@@ -322,54 +322,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3329199311224157878, guid: 15c89227fc4f51b4fa7a2ccff29af055,
         type: 3}
-      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3329199311224157878, guid: 15c89227fc4f51b4fa7a2ccff29af055,
-        type: 3}
-      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3329199311224157878, guid: 15c89227fc4f51b4fa7a2ccff29af055,
-        type: 3}
-      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3329199311224157878, guid: 15c89227fc4f51b4fa7a2ccff29af055,
-        type: 3}
       propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 444291158}
-    - target: {fileID: 3329199311224157878, guid: 15c89227fc4f51b4fa7a2ccff29af055,
-        type: 3}
-      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3329199311224157878, guid: 15c89227fc4f51b4fa7a2ccff29af055,
-        type: 3}
-      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3329199311224157878, guid: 15c89227fc4f51b4fa7a2ccff29af055,
-        type: 3}
-      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: CheckGameStatus
-      objectReference: {fileID: 0}
-    - target: {fileID: 3329199311224157878, guid: 15c89227fc4f51b4fa7a2ccff29af055,
-        type: 3}
-      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: DiceArenaGame.GameFlow, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3329199311224157878, guid: 15c89227fc4f51b4fa7a2ccff29af055,
-        type: 3}
-      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: UnityEngine.Collider, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3329199311224157878, guid: 15c89227fc4f51b4fa7a2ccff29af055,
-        type: 3}
-      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 7986280023703782242, guid: 15c89227fc4f51b4fa7a2ccff29af055,
         type: 3}
       propertyPath: m_Name

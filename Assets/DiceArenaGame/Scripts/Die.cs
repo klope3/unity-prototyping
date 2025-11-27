@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 using Sirenix.OdinInspector;
 
@@ -24,7 +25,9 @@ namespace DiceArenaGame
         [SerializeField] private TextMeshProUGUI face5DebugText;
         [SerializeField] private TextMeshProUGUI face6DebugText;
         [SerializeField] private PointHandler pointHandler;
+        [SerializeField] private LayerMask attackLayerMask;
         private bool rolling;
+        public UnityEvent OnAttack;
 
         private void Awake()
         {
@@ -68,10 +71,24 @@ namespace DiceArenaGame
             DieFaceSO dieFace = ChooseFace(face);
 
             if (dieFace.faceType == DieFaceSO.FaceType.Points) pointHandler.AddPoints(dieFace.points);
-            if (dieFace.faceType == DieFaceSO.FaceType.Attack) Debug.Log($"Attack {dieFace.attackStrength}!");
+            if (dieFace.faceType == DieFaceSO.FaceType.Attack) Attack(dieFace);
             if (dieFace.faceType == DieFaceSO.FaceType.Multiplier) Debug.Log($"Multiplier {dieFace.multiplier}!");
             if (dieFace.faceType == DieFaceSO.FaceType.RepairSelf) Debug.Log($"Repair self {dieFace.repairAmount}!");
             if (dieFace.faceType == DieFaceSO.FaceType.RepairNeighbor) Debug.Log($"Repair neighbor {dieFace.repairAmount}!");
+        }
+
+        private void Attack(DieFaceSO face)
+        {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, face.attackRange, attackLayerMask);
+            Debug.Log(colliders.Length);
+            foreach (Collider c in colliders)
+            {
+                HealthHandler health = c.GetComponent<HealthHandler>();
+                if (health == null) continue;
+                Debug.Log("Damaging");
+                health.AddHealth(-1 * face.attackStrength, c.transform.position);
+            }
+            OnAttack?.Invoke();
         }
 
         private DieFaceSO ChooseFace(int face)

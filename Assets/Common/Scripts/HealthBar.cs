@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] private Image healthBar;
-    [SerializeField] private HealthHandler playerHealth;
+    [SerializeField] private HealthHandler health;
 
     public void UpdateBar()
     {
-        healthBar.fillAmount = (float)playerHealth.CurHealth / playerHealth.MaxHealth;
+        healthBar.fillAmount = (float)health.CurHealth / health.MaxHealth;
     }
 }

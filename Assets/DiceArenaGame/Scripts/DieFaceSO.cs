@@ -11,6 +11,7 @@ namespace DiceArenaGame
         [SerializeField] public FaceType faceType;
         [SerializeField] public int points;
         [SerializeField] public int attackStrength;
+        [SerializeField] public float attackRange;
         [SerializeField] public int multiplier;
         [SerializeField] public int repairAmount;
 

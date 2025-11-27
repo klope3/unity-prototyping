@@ -16,5 +16,6 @@ MonoBehaviour:
   faceType: 2
   points: 0
   attackStrength: 1
+  attackRange: 2
   multiplier: 0
   repairAmount: 0

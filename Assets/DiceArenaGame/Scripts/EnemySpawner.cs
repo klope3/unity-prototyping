@@ -25,6 +25,8 @@ namespace DiceArenaGame
             Vector3 adjustedPosition = randPosition.normalized * spawnDistance;
             GameObject spawned = Instantiate(enemyPf, transform);
             spawned.transform.position = transform.position + adjustedPosition;
+            HealthHandler health = spawned.GetComponent<HealthHandler>();
+            if (health != null) health.Initialize();
 
             timer = 0;
         }
