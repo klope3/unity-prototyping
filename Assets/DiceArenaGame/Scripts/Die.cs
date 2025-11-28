@@ -4,11 +4,14 @@ using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
 using Sirenix.OdinInspector;
+using MoreMountains.Feedbacks;
 
 namespace DiceArenaGame
 {
     public class Die : MonoBehaviour, IClickableObject
     {
+        [SerializeField] private DiceManager diceManager;
+        [SerializeField] private int dieId;
         [SerializeField] private Rigidbody rb;
         [SerializeField] private float spinForce;
         [SerializeField] private float spinTime;
@@ -26,8 +29,23 @@ namespace DiceArenaGame
         [SerializeField] private TextMeshProUGUI face6DebugText;
         [SerializeField] private PointHandler pointHandler;
         [SerializeField] private LayerMask attackLayerMask;
+        [SerializeField] private MMF_Player floatingTextPlayer;
         private bool rolling;
         public UnityEvent OnAttack;
+        private int curFace;
+        public DieFaceSO CurFace
+        {
+            get
+            {
+                if (curFace == 1) return face1;
+                if (curFace == 2) return face2;
+                if (curFace == 3) return face3;
+                if (curFace == 4) return face4;
+                if (curFace == 5) return face5;
+                if (curFace == 6) return face6;
+                return null;
+            }
+        }
 
         private void Awake()
         {
@@ -44,12 +62,14 @@ namespace DiceArenaGame
         private IEnumerator CO_Roll()
         {
             rolling = true;
+            curFace = 0;
 
             rb.AddTorque(Vector3.one * spinForce, ForceMode.Impulse);
             yield return new WaitForSeconds(spinTime);
             rb.angularVelocity = Vector3.zero;
 
             int rand = Random.Range(1, 7);
+            curFace = rand;
             ExecuteFace(rand);
             SetFaceAngle(rand);
 
@@ -70,22 +90,40 @@ namespace DiceArenaGame
         {
             DieFaceSO dieFace = ChooseFace(face);
 
-            if (dieFace.faceType == DieFaceSO.FaceType.Points) pointHandler.AddPoints(dieFace.points);
+            if (dieFace.faceType == DieFaceSO.FaceType.Points)
+            {
+                int points = CalculatePoints(dieFace);
+                pointHandler.AddPoints(points);
+                floatingTextPlayer.GetFeedbackOfType<MMF_FloatingText>().Value = $"+{points}";
+                floatingTextPlayer.PlayFeedbacks();
+            }
             if (dieFace.faceType == DieFaceSO.FaceType.Attack) Attack(dieFace);
             if (dieFace.faceType == DieFaceSO.FaceType.Multiplier) Debug.Log($"Multiplier {dieFace.multiplier}!");
             if (dieFace.faceType == DieFaceSO.FaceType.RepairSelf) Debug.Log($"Repair self {dieFace.repairAmount}!");
             if (dieFace.faceType == DieFaceSO.FaceType.RepairNeighbor) Debug.Log($"Repair neighbor {dieFace.repairAmount}!");
         }
 
+        private int CalculatePoints(DieFaceSO face)
+        {
+            int points = face.points;
+            List<Die> neighbors = diceManager.GetOrthogonalNeighbors(dieId);
+            foreach (Die neighbor in neighbors)
+            {
+                DieFaceSO curFace = neighbor.CurFace;
+                if (curFace == null) continue;
+                if (curFace.faceType != DieFaceSO.FaceType.Multiplier) continue;
+                points *= curFace.multiplier;
+            }
+            return points;
+        }
+
         private void Attack(DieFaceSO face)
         {
             Collider[] colliders = Physics.OverlapSphere(transform.position, face.attackRange, attackLayerMask);
-            Debug.Log(colliders.Length);
             foreach (Collider c in colliders)
             {
                 HealthHandler health = c.GetComponent<HealthHandler>();
                 if (health == null) continue;
-                Debug.Log("Damaging");
                 health.AddHealth(-1 * face.attackStrength, c.transform.position);
             }
             OnAttack?.Invoke();
