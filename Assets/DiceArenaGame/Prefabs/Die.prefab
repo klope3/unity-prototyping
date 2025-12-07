@@ -8652,15 +8652,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a19a08f463f13f4f83c55c8d7fac990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  diceManager: {fileID: 0}
+  dieId: 0
   rb: {fileID: 6581715686398447561}
   spinForce: 15
   spinTime: 1
-  face1: {fileID: 11400000, guid: 1640bf582a0759c4ca14f7b90c0afb72, type: 2}
-  face2: {fileID: 11400000, guid: 032c8358644b0054aa92c079d957e67b, type: 2}
-  face3: {fileID: 11400000, guid: 8903c332b496f4a4092cf2bb527b6231, type: 2}
-  face4: {fileID: 11400000, guid: 819bb12e34681544f924bc38bc64f494, type: 2}
-  face5: {fileID: 11400000, guid: e9f3c7ec7f5fa414a98bb035281732d8, type: 2}
-  face6: {fileID: 11400000, guid: e9f3c7ec7f5fa414a98bb035281732d8, type: 2}
+  face1: {fileID: 0}
+  face2: {fileID: 0}
+  face3: {fileID: 0}
+  face4: {fileID: 0}
+  face5: {fileID: 0}
+  face6: {fileID: 0}
   face1DebugText: {fileID: 384128404601426485}
   face2DebugText: {fileID: 643946333933721700}
   face3DebugText: {fileID: 445834621689348707}

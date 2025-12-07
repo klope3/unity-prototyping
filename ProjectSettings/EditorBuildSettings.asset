@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/CityFPSGame/Scenes/CityFPSSampleScene.unity
     guid: f69f09030d3c7454d965b41a3045dd71
+  - enabled: 1
+    path: Assets/GeometryDashGame/GeometryLevel1.unity
+    guid: 3561acc012bae6342bcf3b45eda23339
+  - enabled: 1
+    path: Assets/GeometryDashGame/GeometryMenuScene.unity
+    guid: 74b57b8b04ce3564bb6fdafcd80dff1c
   m_configObjects: {}

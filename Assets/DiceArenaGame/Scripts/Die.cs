@@ -76,6 +76,17 @@ namespace DiceArenaGame
             rolling = false;
         }
 
+        public void SetFace(DieFaceSO face, int faceId)
+        {
+            if (faceId == 1) face1 = face;
+            if (faceId == 2) face2 = face;
+            if (faceId == 3) face3 = face;
+            if (faceId == 4) face4 = face;
+            if (faceId == 5) face5 = face;
+            if (faceId == 6) face6 = face;
+            UpdateDebugText();
+        }
+
         public void SetFaceAngle(int face)
         {
             if (face == 1) rb.transform.eulerAngles = new Vector3(0, 45, 0);
@@ -89,6 +100,7 @@ namespace DiceArenaGame
         public void ExecuteFace(int face)
         {
             DieFaceSO dieFace = ChooseFace(face);
+            if (dieFace == null) return;
 
             if (dieFace.faceType == DieFaceSO.FaceType.Points)
             {
@@ -143,12 +155,12 @@ namespace DiceArenaGame
         [Button]
         public void UpdateDebugText()
         {
-            face1DebugText.text = face1.faceName;
-            face2DebugText.text = face2.faceName;
-            face3DebugText.text = face3.faceName;
-            face4DebugText.text = face4.faceName;
-            face5DebugText.text = face5.faceName;
-            face6DebugText.text = face6.faceName;
+            face1DebugText.text = face1 != null ? face1.faceName : "-";
+            face2DebugText.text = face2 != null ? face2.faceName : "-";
+            face3DebugText.text = face3 != null ? face3.faceName : "-";
+            face4DebugText.text = face4 != null ? face4.faceName : "-";
+            face5DebugText.text = face5 != null ? face5.faceName : "-";
+            face6DebugText.text = face6 != null ? face6.faceName : "-";
         }
 
         public void Click()
