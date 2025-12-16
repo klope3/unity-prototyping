@@ -9,7 +9,7 @@ namespace GeometryDashGame
         private void OnTriggerEnter2D(Collider2D collision)
         {
             PlayerModeSwitcher switcher = collision.GetComponent<PlayerModeSwitcher>();
-            if (switcher != null) switcher.ActivateShip();
+            if (switcher != null) switcher.ToggleShip();
         }
     }
 }

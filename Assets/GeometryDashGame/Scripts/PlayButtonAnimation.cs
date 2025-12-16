@@ -13,7 +13,7 @@ namespace GeometryDashGame
          
         private void Update()
         {
-            t += Time.deltaTime;
+            t += Time.unscaledDeltaTime;
             float z = amplitude * Mathf.Sin(period * t);
             rt.localEulerAngles = new Vector3(0, 0, z);
         }

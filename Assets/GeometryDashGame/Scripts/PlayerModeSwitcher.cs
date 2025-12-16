@@ -10,11 +10,12 @@ namespace GeometryDashGame
         [SerializeField] private GameObject mainVisual;
         [SerializeField] private GameObject shipVisual;
 
-        public void ActivateShip()
+        public void ToggleShip()
         {
-            mainVisual.SetActive(false);
-            shipVisual.SetActive(true);
-            playerMovement.SetMovementType(PlayerMovement.MovementType.Ship);
+            bool ship = playerMovement.CurMovementType == PlayerMovement.MovementType.Normal;
+            mainVisual.SetActive(!ship);
+            shipVisual.SetActive(ship);
+            playerMovement.SetMovementType(ship ? PlayerMovement.MovementType.Ship : PlayerMovement.MovementType.Normal);
         }
     }
 }

@@ -12,6 +12,7 @@ namespace GeometryDashGame
         [SerializeField] private float jumpForce;
         [SerializeField] private float jumpSpeed;
         [SerializeField] private float jumpSpeedOrb;
+        [SerializeField] private float jumpSpinSpeed;
         [SerializeField] private Rigidbody2D rb;
         public bool hasOrb;
         private MovementType movementType;
@@ -21,6 +22,13 @@ namespace GeometryDashGame
         {
             Normal,
             Ship
+        }
+        public MovementType CurMovementType
+        {
+            get
+            {
+                return movementType;
+            }
         }
 
         private void Update()
@@ -34,6 +42,7 @@ namespace GeometryDashGame
                     Vector2 vel = rb.velocity;
                     vel.y = hasOrb ? jumpSpeedOrb : jumpSpeed;
                     rb.velocity = vel;
+                    rb.angularVelocity = jumpSpinSpeed;
                 }
             }
 

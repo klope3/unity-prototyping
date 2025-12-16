@@ -141,7 +141,7 @@ namespace DiceArenaGame
             OnAttack?.Invoke();
         }
 
-        private DieFaceSO ChooseFace(int face)
+        public DieFaceSO ChooseFace(int face)
         {
             if (face == 1) return face1;
             if (face == 2) return face2;

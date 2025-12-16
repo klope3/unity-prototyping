@@ -13,18 +13,15 @@ namespace DiceArenaGame
         private void Awake()
         {
             inventory.OnAddFace += Inventory_OnAddFace;
-            Debug.Log("run");
         }
 
         private void Start()
         {
             gameObject.SetActive(false);
-            Debug.Log("start");
         }
 
         private void Inventory_OnAddFace(InventoryEntry entry)
         {
-            Debug.Log("call");
             InventoryFaceButton button = Instantiate(listItemPf, listItemsParent);
             button.SetValues(entry.Face.faceName);
         }

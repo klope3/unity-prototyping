@@ -44,6 +44,12 @@ namespace DiceArenaGame
             die.SetFace(face, dieFaceId);
         }
 
+        public DieFaceSO GetFace(int dieId, int faceId)
+        {
+            Die die = ChooseDie(dieId);
+            return die.ChooseFace(faceId);
+        }
+
         private Die ChooseDie(int dieId)
         {
             if (dieId == 1) return die1;
