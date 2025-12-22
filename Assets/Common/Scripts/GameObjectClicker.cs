@@ -12,7 +12,7 @@ public class GameObjectClicker : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            bool hit = Physics.Raycast(ray, out RaycastHit hitInfo, layerMask);
+            bool hit = Physics.Raycast(ray, out RaycastHit hitInfo, 10000, layerMask);
 
             if (!hit) return;
             IClickableObject clickable = hitInfo.collider.GetComponent<IClickableObject>();
