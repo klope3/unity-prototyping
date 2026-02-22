@@ -293,9 +293,12 @@ MonoBehaviour:
   moveForce: 5
   vertMoveForce: 10
   targetSpeed: 6
-  jumpForce: 15
   jumpSpeed: 10
   jumpSpeedOrb: 14
+  jumpSpinSpeed: 200
+  groundedLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
   rb: {fileID: 6148397754093144006}
   hasOrb: 0
 --- !u!114 &4559706361297359583

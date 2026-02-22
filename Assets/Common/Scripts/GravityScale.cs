@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class GravityScale : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float scale;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        Physics.gravity = Vector3.down * 9.8f * scale;
     }
 }

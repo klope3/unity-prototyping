@@ -49,7 +49,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 122, y: 122, z: 116, w: 121}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -121,18 +121,216 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: rect1 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 304.6667
+        width: 163
+        height: 152.33333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c209c5f5571f814eb44b779a7886ac9
+      internalID: 1989334029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rect1 1_1
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 304.6667
+        width: 163
+        height: 152.33333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04da8e7c9ffdf0342aa73adfc4432c12
+      internalID: 1796638039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rect1 1_2
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 304.6667
+        width: 163
+        height: 152.33333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b220a668c4706d447b25108bb92bffaf
+      internalID: 1323658091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rect1 1_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 152.66667
+        width: 163
+        height: 152.33333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abff26c7db826c346bb600a3b6a12d76
+      internalID: 102292954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rect1 1_4
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 152.66667
+        width: 163
+        height: 152.33333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2f2e553e9f35b3439212f9e14cf872b
+      internalID: 1700696535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rect1 1_5
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 152.66667
+        width: 163
+        height: 152.33333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 160f0ba67c12f294c8582f0970be7df0
+      internalID: 2139031889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rect1 1_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.66667175
+        width: 163
+        height: 152.33333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30f58d9d12edd8d48ade7bc8539dc189
+      internalID: -711562725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rect1 1_7
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 0.66667175
+        width: 163
+        height: 152.33333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2320524628af2944fa41c99f4d84f891
+      internalID: 1810127183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rect1 1_8
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 0.66667175
+        width: 163
+        height: 152.33333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4539935db53bca54d9a21c4c7baaac9b
+      internalID: -299696511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      rect1 1_0: 1989334029
+      rect1 1_1: 1796638039
+      rect1 1_2: 1323658091
+      rect1 1_3: 102292954
+      rect1 1_4: 1700696535
+      rect1 1_5: 2139031889
+      rect1 1_6: -711562725
+      rect1 1_7: 1810127183
+      rect1 1_8: -299696511
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -9,10 +9,10 @@ namespace GeometryDashGame
         [SerializeField] private float moveForce;
         [SerializeField] private float vertMoveForce;
         [SerializeField] private float targetSpeed;
-        [SerializeField] private float jumpForce;
         [SerializeField] private float jumpSpeed;
         [SerializeField] private float jumpSpeedOrb;
         [SerializeField] private float jumpSpinSpeed;
+        [SerializeField] private LayerMask groundedLayerMask;
         [SerializeField] private Rigidbody2D rb;
         public bool hasOrb;
         private MovementType movementType;
@@ -37,10 +37,11 @@ namespace GeometryDashGame
 
             if (movementType == MovementType.Normal)
             {
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
                 {
                     Vector2 vel = rb.velocity;
                     vel.y = hasOrb ? jumpSpeedOrb : jumpSpeed;
+                    hasOrb = false;
                     rb.velocity = vel;
                     rb.angularVelocity = jumpSpinSpeed;
                 }
@@ -77,6 +78,12 @@ namespace GeometryDashGame
                 vel.y = 0;
                 rb.velocity = vel;
             }
+        }
+
+        private bool IsGrounded()
+        {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.05f, groundedLayerMask);
+            return hit;
         }
     }
 }

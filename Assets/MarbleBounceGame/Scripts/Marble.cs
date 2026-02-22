@@ -18,6 +18,10 @@ namespace MarbleBounceGame
         public void DoBounce()
         {
             gamePoints.Add(100);
+            if (floatingTextPlayer.GetFeedbackOfType<MMF_FloatingText>() == null)
+            {
+                Debug.LogError("Null");
+            }
             floatingTextPlayer.GetFeedbackOfType<MMF_FloatingText>().Value = $"+{100}";
             floatingTextPlayer.PlayFeedbacks();
         }
